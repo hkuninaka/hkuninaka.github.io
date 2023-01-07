@@ -14467,25 +14467,85 @@ all of MD as it is not optimized for dense, information rich UIs.
 </style>
 
 <style type="text/css">
-a.anchor-link {
-   display: none;
+/* Force rendering true colors when outputing to pdf */
+* {
+  -webkit-print-color-adjust: exact;
 }
+
+/* Misc */
+a.anchor-link {
+  display: none;
+}
+
 .highlight  {
-    margin: 0.4em;
+  margin: 0.4em;
 }
 
 /* Input area styling */
 .jp-InputArea {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .jp-InputArea-editor {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.CodeMirror pre {
+  margin: 0;
+  padding: 0;
+}
+
+/* Using table instead of flexbox so that we can use break-inside property */
+/* CSS rules under this comment should not be required anymore after we move to the JupyterLab 4.0 CSS */
+
+
+.jp-CodeCell.jp-mod-outputsScrolled .jp-OutputArea-prompt {
+  min-width: calc(
+    var(--jp-cell-prompt-width) - var(--jp-private-cell-scrolling-output-offset)
+  );
+}
+
+.jp-OutputArea-child {
+  display: table;
+  width: 100%;
+}
+
+.jp-OutputPrompt {
+  display: table-cell;
+  vertical-align: top;
+  min-width: var(--jp-cell-prompt-width);
+}
+
+body[data-format='mobile'] .jp-OutputPrompt {
+  display: table-row;
+}
+
+.jp-OutputArea-output {
+  display: table-cell;
+  width: 100%;
+}
+
+body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
+  display: table-row;
+}
+
+.jp-OutputArea-output.jp-OutputArea-executeResult {
+  width: 100%;
+}
+
+/* Hiding the collapser by default */
+.jp-Collapser {
+  display: none;
 }
 
 @media print {
-  body {
-    margin: 0;
+  .jp-Cell-inputWrapper,
+  .jp-Cell-outputWrapper {
+    display: block;
+  }
+
+  .jp-OutputArea-child {
+    break-inside: avoid-page;
   }
 }
 </style>
@@ -14526,26 +14586,42 @@ a.anchor-link {
     <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="%E7%89%A9%E7%90%86%E5%AD%A6%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">&#29289;&#29702;&#23398;&#30740;&#31350;&#23460;&#12395;&#12388;&#12356;&#12390;<a class="anchor-link" href="#%E7%89%A9%E7%90%86%E5%AD%A6%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">&#182;</a></h1><p>（2022.4.9）</p>
+<h1 id="%E7%89%A9%E7%90%86%E5%AD%A6%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">&#29289;&#29702;&#23398;&#30740;&#31350;&#23460;&#12395;&#12388;&#12356;&#12390;<a class="anchor-link" href="#%E7%89%A9%E7%90%86%E5%AD%A6%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">&#182;</a></h1><p>（2023.1.7）</p>
 <ul>
 <li>「物理学研究室（理論）」とか「統計物理学研究室」という名前もあります。</li>
 </ul>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%EF%BC%93%E5%B9%B4%E9%96%93%E3%81%AE%E6%B5%81%E3%82%8C">&#65299;&#24180;&#38291;&#12398;&#27969;&#12428;<a class="anchor-link" href="#%EF%BC%93%E5%B9%B4%E9%96%93%E3%81%AE%E6%B5%81%E3%82%8C">&#182;</a></h2><ul>
 <li>2年次...フレンドシップ子ども科学教室の運営（4〜8月）（<strong>教育実地研究基礎</strong>）</li>
-<li>3年次...青少年のための科学の祭典の準備（10月〜11月）（<strong>教育実地研究</strong>）</li>
-<li>4年次...就職活動（教員採用試験、公務員試験、民間企業）、卒業研究</li>
+<li>3年次...ゼミ等</li>
+<li>4年次...就職活動（教員採用試験、公務員試験、民間企業）、卒業研究、ゼミ等</li>
 </ul>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%E5%AD%A6%E7%94%9F%E7%94%9F%E6%B4%BB">&#23398;&#29983;&#29983;&#27963;<a class="anchor-link" href="#%E5%AD%A6%E7%94%9F%E7%94%9F%E6%B4%BB">&#182;</a></h2><ul>
 <li>学生控え室...物性物理実験室（2年生）、物理学第４実験室（3, 4年生）。</li>
@@ -14555,7 +14631,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%E5%8D%92%E6%A5%AD%E7%A0%94%E7%A9%B6%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E">&#21330;&#26989;&#30740;&#31350;&#12398;&#12486;&#12540;&#12510;<a class="anchor-link" href="#%E5%8D%92%E6%A5%AD%E7%A0%94%E7%A9%B6%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E">&#182;</a></h2><ul>
 <li>私がこれまでに関わってきた研究（弾性論、ソフトマター（粉粒体、液滴）、分子シミュレーション、自然・社会現象に見られる統計法則と確率モデル等）の周辺からテーマを提案します。また、物理教育に関するテーマを提案することもあります。</li>
@@ -14565,12 +14647,24 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%81%AE%E5%8D%92%E6%A5%AD%E8%AB%96%E6%96%87">&#12371;&#12428;&#12414;&#12391;&#12398;&#21330;&#26989;&#35542;&#25991;<a class="anchor-link" href="#%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%81%AE%E5%8D%92%E6%A5%AD%E8%AB%96%E6%96%87">&#182;</a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E5%BC%BE%E6%80%A7%E3%83%AD%E3%83%83%E3%83%89%E3%81%AE%E5%BC%B7%E5%88%B6%E6%8C%AF%E5%8B%95%E3%81%A8%E3%82%AB%E3%82%AA%E3%82%B9%EF%BC%882012%E3%80%812013%E5%B9%B4%E5%BA%A6%EF%BC%89">&#24382;&#24615;&#12525;&#12483;&#12489;&#12398;&#24375;&#21046;&#25391;&#21205;&#12392;&#12459;&#12458;&#12473;&#65288;2012&#12289;2013&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E5%BC%BE%E6%80%A7%E3%83%AD%E3%83%83%E3%83%89%E3%81%AE%E5%BC%B7%E5%88%B6%E6%8C%AF%E5%8B%95%E3%81%A8%E3%82%AB%E3%82%AA%E3%82%B9%EF%BC%882012%E3%80%812013%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><ul>
 <li>弾性ロッドの先端におもりをつけたものを強制振動させたときのおもりの運動と、振動パラメータ（振動数、振幅等）の関係を調べました。</li>
@@ -14579,7 +14673,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%B3%E5%8E%9F%E5%AD%90%E3%81%AE%E5%88%86%E5%AD%90%E5%8B%95%E5%8A%9B%E5%AD%A6%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%882013%E5%B9%B4%E5%BA%A6%EF%BC%89">&#12450;&#12523;&#12468;&#12531;&#21407;&#23376;&#12398;&#20998;&#23376;&#21205;&#21147;&#23398;&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#65288;2013&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%B3%E5%8E%9F%E5%AD%90%E3%81%AE%E5%88%86%E5%AD%90%E5%8B%95%E5%8A%9B%E5%AD%A6%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%882013%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/argon.png" width="400"></p>
 <ul>
@@ -14588,7 +14688,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E9%87%8E%E7%90%83%E3%83%9C%E3%83%BC%E3%83%AB%E3%81%AE%E5%8F%8D%E7%99%BA%E4%BF%82%E6%95%B0%E3%81%A8%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%A9%E3%83%B3%E3%81%AE%E5%87%BA%E7%8F%BE%E7%A2%BA%E7%8E%87%E3%81%AE%E9%96%A2%E4%BF%82%EF%BC%882014%E5%B9%B4%E5%BA%A6%EF%BC%89">&#37326;&#29699;&#12508;&#12540;&#12523;&#12398;&#21453;&#30330;&#20418;&#25968;&#12392;&#12507;&#12540;&#12512;&#12521;&#12531;&#12398;&#20986;&#29694;&#30906;&#29575;&#12398;&#38306;&#20418;&#65288;2014&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E9%87%8E%E7%90%83%E3%83%9C%E3%83%BC%E3%83%AB%E3%81%AE%E5%8F%8D%E7%99%BA%E4%BF%82%E6%95%B0%E3%81%A8%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%A9%E3%83%B3%E3%81%AE%E5%87%BA%E7%8F%BE%E7%A2%BA%E7%8E%87%E3%81%AE%E9%96%A2%E4%BF%82%EF%BC%882014%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/Videotogif.gif" width="400"></p>
 <ul>
@@ -14599,7 +14705,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E3%83%93%E3%83%AA%E3%83%A4%E3%83%BC%E3%83%89%E7%90%83%E3%81%AE%E8%A1%9D%E7%AA%81%EF%BC%882015%E3%80%812016%E5%B9%B4%E5%BA%A6%EF%BC%89">&#12499;&#12522;&#12516;&#12540;&#12489;&#29699;&#12398;&#34909;&#31361;&#65288;2015&#12289;2016&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E3%83%93%E3%83%AA%E3%83%A4%E3%83%BC%E3%83%89%E7%90%83%E3%81%AE%E8%A1%9D%E7%AA%81%EF%BC%882015%E3%80%812016%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/billiard.png" width="300"></p>
 <ul>
@@ -14608,7 +14720,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E8%9C%83%E6%B0%97%E6%A5%BC%E3%81%AE%E7%8F%BE%E8%B1%A1%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E6%95%99%E6%9D%90%E9%96%8B%E7%99%BA%EF%BC%882017%E5%B9%B4%E5%BA%A6%EF%BC%89">&#34563;&#27671;&#27004;&#12398;&#29694;&#35937;&#12434;&#29702;&#35299;&#12377;&#12427;&#12383;&#12417;&#12398;&#25945;&#26448;&#38283;&#30330;&#65288;2017&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E8%9C%83%E6%B0%97%E6%A5%BC%E3%81%AE%E7%8F%BE%E8%B1%A1%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E6%95%99%E6%9D%90%E9%96%8B%E7%99%BA%EF%BC%882017%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/mirage.png" width="300"></p>
 <ul>
@@ -14618,28 +14736,48 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E8%99%B9%E3%83%93%E3%83%BC%E3%82%BA%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%99%B9%E3%81%AE%E7%A0%94%E7%A9%B6%EF%BC%882017%E5%B9%B4%E5%BA%A6%EF%BC%89">&#34425;&#12499;&#12540;&#12474;&#12434;&#29992;&#12356;&#12383;&#34425;&#12398;&#30740;&#31350;&#65288;2017&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E8%99%B9%E3%83%93%E3%83%BC%E3%82%BA%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E8%99%B9%E3%81%AE%E7%A0%94%E7%A9%B6%EF%BC%882017%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/rainbow1.png" width="300"></p>
 <ul>
 <li>虹ビーズを用いて実験室に虹を再現します。</li>
 <li>その虹の特徴を定量的に調べ、自然界でまれに観察される三次の虹を作り出すことができました。</li>
+<li>小林悠介、國仲寛人：虹ビーズを用いた3次の虹の再現実験、三重大学教育学部研究紀要 70, 15 (2019).</li>
 </ul>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E3%83%90%E3%83%83%E3%83%88%E3%81%A8%E3%83%9C%E3%83%BC%E3%83%AB%E3%81%AE%E8%A1%9D%E7%AA%81%E5%AE%9F%E9%A8%93%EF%BC%882018%E5%B9%B4%E5%BA%A6%E3%80%9C2020%E5%B9%B4%E5%BA%A6%EF%BC%89">&#12496;&#12483;&#12488;&#12392;&#12508;&#12540;&#12523;&#12398;&#34909;&#31361;&#23455;&#39443;&#65288;2018&#24180;&#24230;&#12316;2020&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E3%83%90%E3%83%83%E3%83%88%E3%81%A8%E3%83%9C%E3%83%BC%E3%83%AB%E3%81%AE%E8%A1%9D%E7%AA%81%E5%AE%9F%E9%A8%93%EF%BC%882018%E5%B9%B4%E5%BA%A6%E3%80%9C2020%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/bat.png" width="400"></p>
 <ul>
 <li>高校野球で金属バットを氷で冷やすと打球が遠くまで飛ぶという「説」があります。</li>
 <li>この研究では金属バットや、今後高校野球で導入が進むと思われる「低反発バット」を用いて、硬式球との衝突実験を行っています。</li>
 <li>バットの温度と、バットと球の間の反発係数の関係を調べ、その「説」の真偽を確かめています。</li>
+<li>國仲寛人、豊田昂平、山北翔也：「金属バットを冷やすとボールが遠くに飛ぶ説」の実験的検証（投稿中）</li>
 </ul>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E5%85%89%E3%81%AE%E6%80%A7%E8%B3%AA%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%95%99%E6%9D%90%E9%96%8B%E7%99%BA%EF%BC%882018%E5%B9%B4%E5%BA%A6%EF%BC%89">&#20809;&#12398;&#24615;&#36074;&#12395;&#38306;&#12377;&#12427;&#25945;&#26448;&#38283;&#30330;&#65288;2018&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E5%85%89%E3%81%AE%E6%80%A7%E8%B3%AA%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E6%95%99%E6%9D%90%E9%96%8B%E7%99%BA%EF%BC%882018%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/can2.png" width="200"></p>
 <ul>
@@ -14649,7 +14787,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BD%E3%83%95%E3%83%88Algodoo%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%AB%98%E6%A0%A1%E7%89%A9%E7%90%86%E3%81%AE%E6%95%99%E6%9D%90%E9%96%8B%E7%99%BA%EF%BC%882019%E5%B9%B4%E5%BA%A6%EF%BC%89">&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#12477;&#12501;&#12488;Algodoo&#12434;&#29992;&#12356;&#12383;&#39640;&#26657;&#29289;&#29702;&#12398;&#25945;&#26448;&#38283;&#30330;&#65288;2019&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BD%E3%83%95%E3%83%88Algodoo%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E9%AB%98%E6%A0%A1%E7%89%A9%E7%90%86%E3%81%AE%E6%95%99%E6%9D%90%E9%96%8B%E7%99%BA%EF%BC%882019%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/algodoo.png" width="300"></p>
 <ul>
@@ -14658,7 +14802,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Youtube%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB%E7%99%BB%E9%8C%B2%E8%80%85%E6%95%B0%E3%81%AE%E5%88%86%E5%B8%83%E3%81%AB%E8%A6%8B%E3%82%89%E3%82%8C%E3%82%8B%E7%B5%B1%E8%A8%88%E7%9A%84%E3%81%AA%E7%89%B9%E5%BE%B4%EF%BC%882019%E5%B9%B4%E5%BA%A6%EF%BC%89">Youtube&#12481;&#12515;&#12531;&#12493;&#12523;&#30331;&#37682;&#32773;&#25968;&#12398;&#20998;&#24067;&#12395;&#35211;&#12425;&#12428;&#12427;&#32113;&#35336;&#30340;&#12394;&#29305;&#24500;&#65288;2019&#24180;&#24230;&#65289;<a class="anchor-link" href="#Youtube%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB%E7%99%BB%E9%8C%B2%E8%80%85%E6%95%B0%E3%81%AE%E5%88%86%E5%B8%83%E3%81%AB%E8%A6%8B%E3%82%89%E3%82%8C%E3%82%8B%E7%B5%B1%E8%A8%88%E7%9A%84%E3%81%AA%E7%89%B9%E5%BE%B4%EF%BC%882019%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><ul>
 <li>Youtubeの動画の統計データを解析し、チャンネル登録者数の統計分布に見られる特徴を調べました。</li>
@@ -14667,7 +14817,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E3%83%81%E3%83%A7%E3%83%BC%E3%82%AF%E3%81%AE%E7%A0%B4%E5%A3%8A%E5%AE%9F%E9%A8%93%EF%BC%882020%E5%B9%B4%E5%BA%A6%EF%BC%89">&#12481;&#12519;&#12540;&#12463;&#12398;&#30772;&#22730;&#23455;&#39443;&#65288;2020&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E3%83%81%E3%83%A7%E3%83%BC%E3%82%AF%E3%81%AE%E7%A0%B4%E5%A3%8A%E5%AE%9F%E9%A8%93%EF%BC%882020%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><ul>
 <li>チョークを床に落とすと必ず３本に割れるという「説」があります。</li>
@@ -14677,7 +14833,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E6%B0%B4%E3%81%AE%E7%B2%98%E5%BA%A6%E3%81%AE%E6%B8%AC%E5%AE%9A%E5%AE%9F%E9%A8%93%EF%BC%882021%E5%B9%B4%E5%BA%A6%EF%BC%89">&#27700;&#12398;&#31896;&#24230;&#12398;&#28204;&#23450;&#23455;&#39443;&#65288;2021&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E6%B0%B4%E3%81%AE%E7%B2%98%E5%BA%A6%E3%81%AE%E6%B8%AC%E5%AE%9A%E5%AE%9F%E9%A8%93%EF%BC%882021%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/visco.png" width="150"></p>
 <ul>
@@ -14687,7 +14849,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Python%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%89%A9%E7%90%86%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%882021%E5%B9%B4%E5%BA%A6%EF%BC%89">Python&#12434;&#29992;&#12356;&#12383;&#29289;&#29702;&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#65288;2021&#24180;&#24230;&#65289;<a class="anchor-link" href="#Python%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E7%89%A9%E7%90%86%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%882021%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><p><img src="fig/santai.gif" width="450"></p>
 <ul>
@@ -14697,7 +14865,13 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E7%A9%BA%E6%B0%97%E6%8A%B5%E6%8A%97%E5%8A%9B%E3%81%AE%E6%B8%AC%E5%AE%9A%E5%AE%9F%E9%A8%93%EF%BC%882021%E5%B9%B4%E5%BA%A6%EF%BC%89">&#31354;&#27671;&#25269;&#25239;&#21147;&#12398;&#28204;&#23450;&#23455;&#39443;&#65288;2021&#24180;&#24230;&#65289;<a class="anchor-link" href="#%E7%A9%BA%E6%B0%97%E6%8A%B5%E6%8A%97%E5%8A%9B%E3%81%AE%E6%B8%AC%E5%AE%9A%E5%AE%9F%E9%A8%93%EF%BC%882021%E5%B9%B4%E5%BA%A6%EF%BC%89">&#182;</a></h3><ul>
 <li>百円均一ショップで販売しているどんぶりを落下させ、センサーやトラッキングアプリで終端速度を計測しました。</li>
@@ -14706,12 +14880,24 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%81%AE%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87">&#12371;&#12428;&#12414;&#12391;&#12398;&#20462;&#22763;&#35542;&#25991;<a class="anchor-link" href="#%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%81%AE%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87">&#182;</a></h2>
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E5%BE%AE%E8%A6%96%E7%9A%84%E3%81%AA%E8%BB%A2%E3%81%8C%E3%82%8A%E6%91%A9%E6%93%A6%E3%81%AE%E5%88%86%E5%AD%90%E5%8B%95%E5%8A%9B%E5%AD%A6%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%882014%E5%B9%B4%E5%BA%A6%E3%80%81%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87%EF%BC%89">&#24494;&#35222;&#30340;&#12394;&#36578;&#12364;&#12426;&#25705;&#25830;&#12398;&#20998;&#23376;&#21205;&#21147;&#23398;&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#65288;2014&#24180;&#24230;&#12289;&#20462;&#22763;&#35542;&#25991;&#65289;<a class="anchor-link" href="#%E5%BE%AE%E8%A6%96%E7%9A%84%E3%81%AA%E8%BB%A2%E3%81%8C%E3%82%8A%E6%91%A9%E6%93%A6%E3%81%AE%E5%88%86%E5%AD%90%E5%8B%95%E5%8A%9B%E5%AD%A6%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%882014%E5%B9%B4%E5%BA%A6%E3%80%81%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87%EF%BC%89">&#182;</a></h3><ul>
 <li>数百個のアルゴン原子から成るクラスターに外力をかけ、同じくアルゴン粒子から成る基板の上を転がすシミュレーションを行いました（Fortran90を使用）。</li>
@@ -14720,24 +14906,73 @@ a.anchor-link {
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E6%95%99%E6%9D%90PhET%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E6%8E%88%E6%A5%AD%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90%EF%BC%882019%E5%B9%B4%E5%BA%A6%E3%80%81%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87%EF%BC%89">&#12471;&#12511;&#12517;&#12524;&#12540;&#12471;&#12519;&#12531;&#25945;&#26448;PhET&#12434;&#29992;&#12356;&#12383;&#25480;&#26989;&#12510;&#12491;&#12517;&#12450;&#12523;&#12398;&#20316;&#25104;&#65288;2019&#24180;&#24230;&#12289;&#20462;&#22763;&#35542;&#25991;&#65289;<a class="anchor-link" href="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E6%95%99%E6%9D%90PhET%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E6%8E%88%E6%A5%AD%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90%EF%BC%882019%E5%B9%B4%E5%BA%A6%E3%80%81%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87%EF%BC%89">&#182;</a></h3><p><img src="fig/phet.png" width="300"></p>
 <ul>
 <li>コロラド大学で開発された無料の科学教育シミュレーションPhETを、中学校理科の授業で活用するための教員向けマニュアルを作成しました。</li>
+<li>國仲寛人、後藤太一郎、大多和拓真：タブレットでやってみよう！理科のシミュレーション実験（大日本図書、2021）.</li>
 </ul>
 
 </div>
 </div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="%E6%BB%B4%E7%8A%B6%E5%87%9D%E7%B8%AE%E3%81%AB%E8%A6%8B%E3%82%89%E3%82%8C%E3%82%8B%E6%B6%B2%E6%BB%B4%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E5%88%86%E5%B8%83%EF%BC%882019%E5%B9%B4%E5%BA%A6%E3%80%81%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87%EF%BC%89">&#28404;&#29366;&#20957;&#32302;&#12395;&#35211;&#12425;&#12428;&#12427;&#28082;&#28404;&#12398;&#12469;&#12452;&#12474;&#20998;&#24067;&#65288;2019&#24180;&#24230;&#12289;&#20462;&#22763;&#35542;&#25991;&#65289;<a class="anchor-link" href="#%E6%BB%B4%E7%8A%B6%E5%87%9D%E7%B8%AE%E3%81%AB%E8%A6%8B%E3%82%89%E3%82%8C%E3%82%8B%E6%B6%B2%E6%BB%B4%E3%81%AE%E3%82%B5%E3%82%A4%E3%82%BA%E5%88%86%E5%B8%83%EF%BC%882019%E5%B9%B4%E5%BA%A6%E3%80%81%E4%BF%AE%E5%A3%AB%E8%AB%96%E6%96%87%EF%BC%89">&#182;</a></h3><p><img src="fig/droplet.png" width="250"></p>
 <ul>
 <li>サランラップやガラス面に凝縮する液滴のサイズ分布に見られる統計的性質や、時間発展を実験により調べました。</li>
 <li>また確率的乗算過程に基づく簡単な液滴成長のシミュレーションを行い、実験データを定性的に再現できることを示しました。</li>
+<li>Y. Kobayashi and H. Kuninaka: Double Lognormal Distribution in Dropwise Condensation and Its Prediction by a Simple Model, J. Phys. Soc. Jpn., 91, 084001 (2022).</li>
 </ul>
 
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AE%E5%87%BA%E7%89%88%E7%89%A9">&#30740;&#31350;&#23460;&#12398;&#20986;&#29256;&#29289;<a class="anchor-link" href="#%E7%A0%94%E7%A9%B6%E5%AE%A4%E3%81%AE%E5%87%BA%E7%89%88%E7%89%A9">&#182;</a></h2><ul>
+<li>小林悠介、國仲寛人：虹ビーズを用いた3次の虹の再現実験、三重大学教育学部研究紀要 70, 15 (2019).</li>
+<li>國仲寛人、後藤太一郎、大多和拓真：タブレットでやってみよう！理科のシミュレーション実験（大日本図書、2021）.</li>
+<li>Y. Kobayashi and H. Kuninaka: Double Lognormal Distribution in Dropwise Condensation and Its Prediction by a Simple Model, J. Phys. Soc. Jpn., 91, 084001 (2022).</li>
+<li>國仲寛人、豊田昂平、山北翔也：「金属バットを冷やすとボールが遠くに飛ぶ説」の実験的検証（投稿中）</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 </body>
 
